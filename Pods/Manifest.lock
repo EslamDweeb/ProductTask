@@ -1,0 +1,36 @@
+PODS:
+  - Alamofire (5.2.2)
+  - Realm (4.4.1):
+    - Realm/Headers (= 4.4.1)
+  - Realm/Headers (4.4.1)
+  - RealmSwift (4.4.1):
+    - Realm (= 4.4.1)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
+  - SKActivityIndicatorView (1.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - RealmSwift (= 4.4.1)
+  - SDWebImage
+  - SKActivityIndicatorView (~> 1.0.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Realm
+    - RealmSwift
+    - SDWebImage
+    - SKActivityIndicatorView
+
+SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
+  RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SKActivityIndicatorView: 81c123380127ad497f9b57cd4d11347e40ab3427
+
+PODFILE CHECKSUM: 1e34bc7e8f98a6d2752a71d22537a9bcd58a0713
+
+COCOAPODS: 1.9.3

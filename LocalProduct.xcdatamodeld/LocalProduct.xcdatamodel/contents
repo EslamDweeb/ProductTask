@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20G5033c" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="LocalProduct" representedClassName="LocalProduct" syncable="YES" codeGenerationType="class">
+        <attribute name="imageUrl" optional="YES" attributeType="String" customClassName="[Link]"/>
+        <attribute name="name" optional="YES" attributeType="String" customClassName="[Product]"/>
+    </entity>
+    <elements>
+        <element name="LocalProduct" positionX="-54" positionY="-9" width="128" height="59"/>
+    </elements>
+</model>
