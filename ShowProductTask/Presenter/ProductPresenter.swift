@@ -22,7 +22,7 @@ class ProductVCPresenter{
     
     private weak var delegate: ProductPresenterDelegate?
     var productsArray: [Product] = []
-   // private var dataBaseManager = ProductManger.shardInstants
+    private var dataBaseManager = ProductManger.shardInstants
     
     init(delegate:ProductPresenterDelegate) {
         self.delegate = delegate
@@ -40,21 +40,35 @@ class ProductVCPresenter{
             switch result {
             case.success(let data):
                 self.productsArray = data.data.products
-                self.delegate?.fetchingDataSuccess()
-              //  self.dataBaseManager.saveToCoreData(products: data.data.products)
+                //self.delegate?.fetchingDataSuccess()
+                self.handelLocalDataBase(data.data.products)
 
-             //  self.fetchfromDataBase()
+               self.fetchfromDataBase()
             case.failure(let error):
                 self.delegate?.showError(error: error.localizedDescription)
                 
             }
         }
     }
-//    private func fetchfromDataBase(){
-//        self.productsArray = self.dataBaseManager.changeToProductArray()
-//        self.delegate?.fetchingDataSuccess()
-//    }
+    
+    //MARK:- Handel Local Database
+    private func handelLocalDataBase(_ products:[Product]){
+        handelSavedLocalData(products)
+        fetchfromDataBase()
+    }
+    private func handelSavedLocalData(_ products:[Product]){
+        dataBaseManager.deleteAllData()
+        dataBaseManager.saveToCoreData(products: products)
+    }
+    private func fetchfromDataBase(){
+        self.productsArray = self.dataBaseManager.changeToProductArray()
+        self.delegate?.fetchingDataSuccess()
+    }
+    
+    //MARK:- Handel TableView Config
+    
     func getProductCount()-> Int{
+        print(productsArray.count)
         return productsArray.count
     }
     
@@ -66,7 +80,7 @@ class ProductVCPresenter{
             if  !product.links.isEmpty{
                 cell.dispalyImage(ImageUrl: product.links[0].link)
             }
-            cell.displayProductTitle(title:product.nameEn)
+            cell.displayProductTitle(title:product.nameEn + "&\(  index)")
         }
     }
 }

@@ -9,5 +9,4 @@ target 'ShowProductTask' do
 pod 'Alamofire'
 pod 'SKActivityIndicatorView', '~> 1.0.0'
 pod 'SDWebImage'
-pod 'RealmSwift', '4.4.1'
 end

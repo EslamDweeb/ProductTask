@@ -76,8 +76,8 @@ class ProductsVC:UIViewController,ProductPresenterDelegate{
     }
     
     func fetchingDataSuccess() {
-        //    self.tableView.reloadWithAnimation()\
-        self.tableView.reloadData()
+          self.tableView.reloadWithAnimation()
+       // self.tableView.reloadData()
     }
     
     func showError(error: String) {

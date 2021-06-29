@@ -11,6 +11,7 @@ import CoreData
 class ProductManger{
     
     static let shardInstants = ProductManger()
+    private let entityName = "LocalProduct"
     private init(){
         
     }
@@ -54,7 +55,7 @@ class ProductManger{
         
         //2
         let fetchRequest =
-            NSFetchRequest<NSManagedObject>(entityName: "LocalProduct")
+            NSFetchRequest<NSManagedObject>(entityName: entityName)
         
         //3
         do {
@@ -76,5 +77,26 @@ class ProductManger{
         }
         return newArr
         
+    }
+    func deleteAllData() {
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        fetchRequest.returnsObjectsAsFaults = false
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for object in results {
+                guard let objectData = object as? NSManagedObject else {continue}
+                managedContext.delete(objectData)
+            }
+        } catch let error {
+            print("Detele all data in \(entityName) error :", error)
+        }
     }
 }
